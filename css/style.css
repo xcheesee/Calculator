@@ -21,7 +21,6 @@ body {
 .numContainer {
     flex-wrap: wrap;
     height: 100%;
-    /*margin: 1em;*/
 }
 
 .column {
@@ -31,7 +30,6 @@ body {
 .number, button {
     display: flex;
     flex: 1 0 20%;
-    background-color: blanchedalmond;
     justify-content: center;
     align-items: center;
     border-radius: 20%;
@@ -42,7 +40,7 @@ body {
     background-color: rgb(29, 25, 25);
     width: 600px;
     height: 900px;
-    padding: 10px;
+    padding: 20px;
 }
 
 .screen {
@@ -51,19 +49,14 @@ body {
     align-items: center;
     align-self: center;
     font-size: 6rem;
-    /*margin: 0.2em 0;*/
     width: 100%;
     height: 7rem;
     background-color: darkgray;
 }
 
 .clear {
-    /*margin: 0 1em;*/
-    background-color: red;
     font-size: 3em;
     width: 3em;
-    border-radius: 50px;
-    text-align: center;
 }
 
 button{
@@ -85,6 +78,7 @@ button{
 
 .clearB {
     background-color: red;
+    border-radius: 50px;
 }
 
 .clearB:active {
