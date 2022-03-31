@@ -14,10 +14,14 @@ body {
     gap: 10px;
 }
 
+.container, .screen {
+    border-radius: 20px;
+}
+
 .numContainer {
     flex-wrap: wrap;
     height: 100%;
-    margin: 1em;
+    /*margin: 1em;*/
 }
 
 .column {
@@ -31,12 +35,14 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 20%;
+    font-size: 5em;
 }
 
 .container {
-    background-color: grey;
+    background-color: rgb(29, 25, 25);
     width: 600px;
     height: 900px;
+    padding: 10px;
 }
 
 .screen {
@@ -45,14 +51,58 @@ body {
     align-items: center;
     align-self: center;
     font-size: 6rem;
-    margin: 0.2em 0;
-    width: 95%;
+    /*margin: 0.2em 0;*/
+    width: 100%;
     height: 7rem;
-    background-color: beige;
+    background-color: darkgray;
 }
 
-button {
+.clear {
+    /*margin: 0 1em;*/
+    background-color: red;
+    font-size: 3em;
+    width: 3em;
+    border-radius: 50px;
+    text-align: center;
+}
+
+button{
     display: flex;
     flex: 1 1 100%;
     height: 100%;
+    width: 100%;
+    font-size: 1em;
+    border: none;
+}
+
+.numB {
+    background-color: darkgray;
+}
+
+.numB:active {
+    background-color: Gray;
+}
+
+.clearB {
+    background-color: red;
+}
+
+.clearB:active {
+    background-color: darkred;
+}
+
+.opB {
+    background-color: blue;
+}
+
+.opB:active {
+    background-color: navy;
+}
+
+.eqB {
+    background-color: rgb(159, 200, 221);
+}
+
+.eqB:active {
+    background-color: rgb(35, 144, 169);
 }
