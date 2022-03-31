@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+}
+
+.center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container, .numContainer {
+    display: flex;
+    gap: 10px;
+}
+
+.numContainer {
+    flex-wrap: wrap;
+    height: 100%;
+    margin: 1em;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.number {
+    display: flex;
+    flex: 1 0 20%;
+    background-color: blanchedalmond;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20%;
+}
+
+.container {
+    background-color: grey;
+    width: 600px;
+    height: 900px;
+}
+
+.screen {
+    align-self: center;
+    margin: 1em;
+    width: 95%;
+    height: 20%;
+    background-color: beige;
+}
