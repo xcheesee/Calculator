@@ -2,6 +2,7 @@ const btns = document.querySelectorAll('button');
 const screen = document.querySelector('.screen')
 let numBuffer = '';
 let storedValues = {};
+let dotted = false;
 
 btns.forEach(button => button.addEventListener('click', operate))
 
@@ -11,15 +12,34 @@ function operate(value) {
 
     switch (classes[0]){
         case 'numB':
-            if(numBuffer.length > 12) {
-                alert('NUMBER TOO BIG MY MAN')
+            if(numBuffer.length > 11) {
+                break;
+                /*alert('Calculation exceded character limit')
                 numBuffer = ''
                 screen.innerText = ''
-                return
+                dotted = false;
+                return*/
             }
             addButton(id)
             screen.innerText = `${numBuffer}`
             break
+
+        case 'dot':
+            if(dotted){
+                break
+            }
+            if(numBuffer.length > 11) {
+                break
+                /*alert('Calculation exceded character limit')
+                numBuffer = ''
+                screen.innerText = ''
+                return*/
+            }
+            addButton(id)
+            screen.innerText = `${numBuffer}`
+            dotted = true
+            break
+
         case 'opB':
             doOperation(id)
             if(checkSanity()){
@@ -27,8 +47,20 @@ function operate(value) {
                 clearAll()
                 return
             }
-            screen.innerText = `${storedValues.firstVal}`
+            if(storedValues.firstVal > 999999999999) {
+                alert("Calculation exceded character limit")
+                numBuffer = ''
+                screen.innerText= ''
+                clearAll()
+                dotted = false;
+                return
+            }else{
+                formattedValue = String(storedValues.firstVal)
+                screen.innerText = `${parseFloat(formattedValue.slice(0, 12))}`
+            }
+            dotted = false;
             break
+
         case 'eqB':
             if(storedValues.operator == undefined) {
                 alert("NO NUMBERS TO OPERATE")
@@ -36,13 +68,25 @@ function operate(value) {
                 break;
             }
             doOperation(id)
-            screen.innerText = `${storedValues.firstVal}`
+            if(storedValues.firstVal > 999999999999) {
+                alert("Calculation exceded character limit")
+                numBuffer = ''
+                screen.innerText= ''
+            }else{
+                formattedValue = String(storedValues.firstVal)
+                screen.innerText = `${parseFloat(formattedValue.slice(0, 12))}`
+               
+            }
             clearAll()
+            dotted = false;
             break
+
         case 'clearB':
             clearAll()
             screen.innerText = ``
+            dotted = false;
             break
+
         default:
             alert('FATAL ERROR')
     }
@@ -79,7 +123,7 @@ function defineOperation(operator) {
         numBuffer = '';
     }
     else {
-        console.log(operateLast(numBuffer, operator))
+        operateLast(numBuffer, operator)
         numBuffer = '';
     }
 }
@@ -108,6 +152,10 @@ function makeOperation(object) {
         return primeiro - segundo
     }
     else if(operator == '/'){
+        if(segundo == 0) {
+            alert("bruh")
+            return 0
+        }
         return primeiro / segundo
     }
     else {
